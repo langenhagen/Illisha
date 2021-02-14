@@ -1,0 +1,70 @@
+        MAIN MENU
+
+// DB: get all Player names
+Players() : IEnumerable<string> 
+
+// DB: get All Elements of a Player, including all Games und zu jedem spiel die word_stats_ table inhalte
+Player( string name) : Player // Player success // null error
+
+// DB: creates a new player with initial element-values.
+NewPlayer( string name) : Player // Player success / null error
+
+// DB: retrieves ALL scores mit playernames from the db. Maybe already Ordered?
+Highscores() : void
+
+        PLAYER
+
+Player.PlayOn() : void
+Player.Games() : IEnumerable<Game>
+Player.LoadGame( int gameID) : Game // Game success / null error
+
+
+        NEW GAME
+
+// DB: Creates a new game in the db, with all values init and stuff.
+// Fertigt ne kopie von word_stats_game_x and und füllt die mit werten
+// das 'x' im namen soll der index des games sein, zu dem die tabelle gehört.
+Player.NewGame( Language from, Language to)
+
+
+        OPTIONS
+
+
+Player.Options() : IllishaOptions
+
+
+        STATS
+
+// DB: deletes the player and his games etc things connected to him from the db.
+Player.delete() : bool;
+
+Player.Score : int
+Player.NumWords : int
+Player.NumLetters : int
+
+Game.Score : int
+Game.Letters : int
+Game.Achievements : IEnumerable<Achievement>
+
+// DB: deletes the game from the db and its stats table and all associated bullsh
+Game.delete();
+
+
+        PAUSE MENU
+        
+resume() : void
+Player.Options() // Redundant
+leave() : void // saves the game
+
+
+        LOAD GAME
+        
+Player.LoadGame()
+
+
+
+// DB: eine Funktion, die die werte in GAMES ändern kann: num_words, num_letters, num_errors, num_possible_hits, cannon_speed, datetime_stopped, score.
+
+// DB: eine funktion, die die werte in WORD_STATS_GAME_n ändern. also given a match-id. count, time_for_word
+
+// DB: eine funktion die die Werte in Players ändern kann volume_fx, volume_music

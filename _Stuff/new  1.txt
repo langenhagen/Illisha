@@ -1,0 +1,33 @@
+interface Feedback
+{
+    void PlayFeedback();
+}
+
+
+class FeedbackScript
+{
+    public void LetterFeedback( int points)
+    {
+        // animate 2dui, shake cam, play sound
+    }
+
+    public void WordFeedback(  int points)
+    {
+        // animate 2dui, shake cam, play sound
+    }
+
+    public void SpeedFeedback( float speed)
+    {
+    }
+    
+    public void ScoreFeedback()
+    {
+        // kleines Pling alle 50 Punkte oder so.
+    }
+
+    public void AchievementFeedback( Feedback achievment)
+    {
+        achievement.PlayFeedback();
+
+    }
+}

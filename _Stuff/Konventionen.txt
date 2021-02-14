@@ -1,0 +1,3 @@
+Member vars haben preceeding _ underscore außer in den Model-Klassen
+
+Time is, as far as possible, measured in floating points in seconds

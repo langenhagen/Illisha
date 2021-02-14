@@ -1,0 +1,96 @@
+        MAIN MENU
+
+// DB: get all Player names
+Players() : IEnumerable<string> 
+	//SQL: SELECT id, name FROM players;
+
+
+
+// DB: get All Elements of a Player, including all Games
+Player( integer playerId) : Player // Player success // null error
+	//SQL: SELECT * FROM players WHERE id = [playerId];				-- gibt id,name,volume_fx,volume_music eines Spielers zurück
+	//SQL: SELECT * FROM games WHERE player = [playerId];			-- gibt alles Spiele eines Spielers aus
+	
+	
+// DB: creates a new player with initial element-values.
+NewPlayer( string name) : Player // Player success / null error
+	//SQL: INSERT INTO players (name, volume_fx, volume_music) VALUES ([name],[fx_default],[music_default]);
+
+
+// DB: retrieves ALL scores mit playernames from the db. Maybe already Ordered?
+Highscores() : void
+	//SQL: SELECT p.name, g.score FROM games g JOIN players p ON g.player = p.id ORDER BY g.score DESC	-- gibt name, score absteigend sortiert nach score zurück
+        PLAYER
+
+Player.PlayOn() : void
+Player.Games() : IEnumerable<Game>
+Player.LoadGame( int gameID) : Game // Game success / null error
+
+
+        NEW GAME
+
+// DB: Creates a new game in the db, with all values init and stuff.
+// Fertigt ne kopie von word_stats_game_x and und füllt die mit werten
+// das 'x' im namen soll der index des games sein, zu dem die tabelle gehört.
+Player.NewGame( Language from, Language to)
+	//SQL: INSERT INTO games (player, num_words, num_letters, num_errors, num_possible_hits, cannon_speed, datetime_started, datetime_stopped, score, lng_from, lng_to) VALUES
+	//		([player], [num_words], [num_letters], [num_errors], [num_possible_hits], [cannon_speed], [datetime_started], [datetime_stopped], [score], [lng_from], [lng_to]);			-- neues Spiel eintragen
+	
+	//SQL: SELECT max(id) as id FROM games		-- liefert letzte id
+	/* SQL:
+		CREATE TABLE word_stats_game_[game.id] ( 
+			match_id      INTEGER PRIMARY KEY,
+			count         INTEGER,
+			time_for_word NUMERIC 
+		);
+	*/
+	
+        OPTIONS
+
+
+Player.Options() : IllishaOptions
+
+
+        STATS
+
+// DB: deletes the player and his games etc things connected to him from the db.
+Player.delete() : bool;
+//SQL: DELETE FROM player WHERE id = [playerId];
+// am Ende nicht vergessen foreignKeys einzufügen
+
+Player.Score : int
+Player.NumWords : int
+Player.NumLetters : int
+
+Game.Score : int
+Game.Letters : int
+Game.Achievements : IEnumerable<Achievement>
+
+// DB: deletes the game from the db and its stats table and all associated bullsh
+Game.delete();
+//SQL: DELETE FROM games WHERE id = [gameId];
+//SQL: DROP TABLE word_stats_game_[x]
+// am Ende nicht vergessen foreignKeys einzufügen
+
+        PAUSE MENU
+        
+resume() : void
+Player.Options() // Redundant
+leave() : void // saves the game
+
+
+        LOAD GAME
+        
+Player.LoadGame()
+
+
+
+// DB: eine Funktion, die die werte in GAMES ändern kann: num_words, num_letters, num_errors, num_possible_hits, cannon_speed, datetime_stopped, score.
+//SQL: UPDATE games SET [key1]=[value1], [key2]=[value2],.... WHERE id = [gameId];
+
+// DB: eine funktion, die die werte in WORD_STATS_GAME_n ändern. also given a match-id. count, time_for_word
+//SQL: siehe UPDATE games....
+//z.b  UPDATE word_stats_game_1 SET count=count+1, time_for_word=time_for_word+5.3 WHERE match_id = [matchId];
+
+// DB: eine funktion die die Werte in Players ändern kann volume_fx, volume_music
+//SQL: siehr UPDATE games....

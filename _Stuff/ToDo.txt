@@ -1,0 +1,64 @@
+    
+Skybox
+Gravitation entfernen
+Kyrillische Schriftart gniddeln
+
+Public vars privatisieren festlegen.
+
+2D UI dynamisieren
+
+
+clean up code
+
+fix bug: double-kill letters
+
+Set the Unity Scene views to something a little less resource consuming. Meaning:
+    MeshRenderer Deactivate Receive Shadows etc
+    
+2d ui formidable für versch screen sizes machen!
+
+
+maybe glyphs leicht drehen...
+
+
+error // exception handling
+
+kann man wege einsparen wenn man nur das game-object aber nicht den game-controller brauch?
+
+süssies einbauen
+
+    schneckenhaus
+
+bessere kanone mit höherer stärke
+
+für jeden letter die current time in ms angeben --> feedbacks/extra-points, achievements
+
+fehler wie bei space invaders evtl verhindern
+
+
+stylify the ui set anchors correctly etc
+
+Problem: tweens mit anchors gekoppelt
+
+
+UI feintunen
+
+UI Atlas machen für NGUI
+
+
+sql anbindung effizienter machen
+sql anbindung sicher machen 
+
+singleton bez: DBConnector - SQLiteConnector, besser, eleganter lösen.
+
+geräusche einer schreibmaschine?
+
+clean up ngui and sqlitekit before final build
+
+On Application Shutdown??
+
+ErrorPerWord
+
+double time tripple time wörter ???!
+
+instant feedback in 3 stars mode with ka-ching sounds for
